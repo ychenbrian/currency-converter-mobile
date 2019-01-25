@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="error_no_currencies_found">Error. No currencies found.</string>
+    <string name="search">Search</string>
+    <string name="currency_picker_header">Currency Search</string>
+    <string name="pick_currency">Pick a currency</string>
+    <string name="et_hint">0.0</string>
+    <string name="my_transaction">My transaction is in:</string>
+    <string name="my_money">My money is in:</string>
+    <string name="imagine_one_description">This image is shown at the top for the flag of the first currency.</string>
+    <string name="imagine_two_description">This image is shown at the bottom for the flag of the first currency.</string>
+    <string name="imagine_arrow_one_description">The blue arrow at the top.</string>
+    <string name="imagine_arrow_two_description">The blue arrow at the bottom.</string>
+    <string name="currency_code_top"></string>
+</resources>
