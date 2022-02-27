@@ -1,0 +1,54 @@
+{
+  "name": "MultiPlatformLibraryUnits",
+  "version": "0.6.1",
+  "homepage": "https://github.com/icerockdev/moko-units",
+  "source": {
+    "git": "https://github.com/icerockdev/moko-units.git",
+    "tag": "release/0.6.1"
+  },
+  "authors": "IceRock Development",
+  "license": {
+    "type": "Apache 2",
+    "file": "LICENSE.md"
+  },
+  "summary": "Swift additions to moko-units Kotlin/Native library",
+  "module_name": "MultiPlatformLibraryUnits",
+  "dependencies": {
+    "MultiPlatformLibrary": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5",
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "units/src/iosMain/swift/Core/**/*.{h,m,swift}"
+    },
+    {
+      "name": "R.swift",
+      "source_files": "units/src/iosMain/swift/R.swift/**/*.{h,m,swift}",
+      "dependencies": {
+        "R.swift": [
+          "5.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Differ",
+      "source_files": "units/src/iosMain/swift/Differ/**/*.{h,m,swift}",
+      "dependencies": {
+        "Differ": [
+          "1.4.4"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}

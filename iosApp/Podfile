@@ -1,0 +1,56 @@
+source 'https://cdn.cocoapods.org/'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+use_frameworks!
+platform :ios, '12.0'
+
+# workaround for https://github.com/CocoaPods/CocoaPods/issues/8073
+# need for correct invalidate of cache MultiPlatformLibrary.framework
+install! 'cocoapods', :disable_input_output_paths => true
+
+pre_install do |installer|
+  # We represent a Kotlin/Native module to CocoaPods as a vendored framework.
+  # CocoaPods needs access to such frameworks during installation process to obtain
+  # their type (static or dynamic) and configure the Xcode project accordingly.
+  # Build MultiPlatformLibrary framework to correct install Pod
+  puts "prepare MultiPlatformLibrary.framework (require some time...)"
+  `cd .. && ./gradlew :shared:syncMultiPlatformLibraryDebugFrameworkIosX64`
+  puts "preparing MultiPlatformLibrary.framework complete"
+end
+
+target 'iosApp' do
+  pod 'MultiPlatformLibrary', :path => '../shared'
+  pod 'MultiPlatformLibraryMvvm/Core',
+    :git => 'https://github.com/icerockdev/moko-mvvm.git', :tag => 'release/0.11.0'
+  pod 'MultiPlatformLibraryMvvm/AlamofireImage',
+    :git => 'https://github.com/icerockdev/moko-mvvm.git', :tag => 'release/0.11.0'
+  pod 'MultiPlatformLibraryMvvm/SkyFloatingLabelTextField',
+    :git => 'https://github.com/icerockdev/moko-mvvm.git', :tag => 'release/0.11.0'
+  pod 'MultiPlatformLibraryUnits/Core',
+    :git => 'https://github.com/icerockdev/moko-units.git', :tag => 'release/0.6.1'
+
+  # Rx Extensions
+  pod 'Bond'  # https://github.com/DeclarativeHub/Bond
+
+  # Tools
+  pod 'R.swift'  # https://github.com/mac-cain13/R.swift
+  pod 'SwiftLint'  # https://github.com/realm/SwiftLint
+
+  # Image
+  pod 'Kingfisher', '~> 6.0'  # https://github.com/onevcat/Kingfisher
+
+  # UI
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'NVActivityIndicatorView', '~> 4.0'  # https://github.com/ninjaprox/NVActivityIndicatorView
+  pod 'AloeStackView'  # https://github.com/marlimox/AloeStackView
+  pod 'DropDown', '2.3.13'  # https://github.com/AssistoLab/DropDown
+  pod 'UITextView+Placeholder'
+  pod 'ChattoAdditions', '= 4.1.0'
+  pod 'InputBarAccessoryView'
+  pod 'SwiftEntryKit', '1.2.7'  # https://github.com/huri000/SwiftEntryKit
+  pod 'RAMAnimatedTabBarController'  # https://github.com/Ramotion/animated-tab-bar
+  pod 'BetterSegmentedControl', '~> 2.0'  # https://github.com/gmarm/BetterSegmentedControl
+  pod 'FoldingCell'  # https://github.com/Ramotion/folding-cell
+end
