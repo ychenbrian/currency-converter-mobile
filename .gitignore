@@ -1,7 +1,7 @@
 # Built application files
 *.apk
-*.ap_
 *.aab
+*.ipa
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -35,33 +35,66 @@ captures/
 
 # IntelliJ
 *.iml
+.idea/
 .idea/workspace.xml
+.idea/compiler.xml
 .idea/tasks.xml
 .idea/gradle.xml
+.idea/modules.xml
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/.name
+.idea/misc.xml
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
-#*.jks
-#*.keystore
+*.jks
+*.keystore
+keystore.properties
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 
-# Google Services (e.g. APIs or Firebase)
+# Google Services (com.g. APIs or Firebase)
 google-services.json
+
+# OneLogin secrets
+androidApp/onelogin.properties
 
 # Freeline
 freeline.py
 freeline/
 freeline_project_description.json
 
-# fastlane
+# Obj-C/Swift specific
+*.hmap
+
+# Apple packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Apple system related
+iOSInjectionProject/
+.DS_Store
+iosApp/iosApp.xcworkspace/xcuserdata/
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# Fastlane
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots
+fastlane/screenshots/**/*.png
 fastlane/test_output
-fastlane/readme.md
+
+# Backend
+backend/
+output-metadata.json

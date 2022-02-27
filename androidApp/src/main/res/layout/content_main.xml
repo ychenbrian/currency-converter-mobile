@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.deerangle.dacc.android.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView
+        android:id="@+id/flagViewOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/imagine_one_description"
+        app:layout_constraintBottom_toBottomOf="@+id/pickButtonOne"
+        app:layout_constraintStart_toStartOf="@+id/pickButtonOne"
+        app:layout_constraintTop_toTopOf="@+id/pickButtonOne"
+        app:srcCompat="@drawable/flag_usd" />
+
+    <ImageView
+        android:id="@+id/flagViewTwo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/imagine_two_description"
+        app:layout_constraintBottom_toBottomOf="@+id/pickButtonTwo"
+        app:layout_constraintStart_toStartOf="@+id/pickButtonTwo"
+        app:layout_constraintTop_toTopOf="@+id/pickButtonTwo"
+        app:srcCompat="@drawable/flag_cny" />
+
+    <ImageView
+        android:id="@+id/ivTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/imagine_arrow_one_description"
+        app:layout_constraintBottom_toBottomOf="@+id/pickButtonOne"
+        app:layout_constraintEnd_toEndOf="@+id/pickButtonOne"
+        app:layout_constraintTop_toTopOf="@+id/pickButtonOne"
+        app:srcCompat="@drawable/drop_down_arrow" />
+
+    <ImageView
+        android:id="@+id/ivBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/imagine_arrow_two_description"
+        app:layout_constraintBottom_toBottomOf="@+id/pickButtonTwo"
+        app:layout_constraintEnd_toEndOf="@+id/pickButtonTwo"
+        app:layout_constraintTop_toTopOf="@+id/pickButtonTwo"
+        app:srcCompat="@drawable/drop_down_arrow" />
+
+    <TextView
+        android:id="@+id/tvOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginStart="24dp"
+        android:background="#00000000"
+        android:text="@string/my_transaction"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/pickButtonOne"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:background="#00000000"
+        android:text="@string/my_money"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/pickButtonTwo"
+        app:layout_constraintStart_toStartOf="@+id/tvOne" />
+
+    <EditText
+        android:id="@+id/inputOne"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_draw_one"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="end"
+        android:hint="@string/et_hint"
+        android:inputType="numberDecimal"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pickButtonOne"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/pickButtonOne"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_draw_one"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center_vertical"
+        android:text="         USD"
+        android:textSize="29sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/pickButtonTwo"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/button_draw_one"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center_vertical"
+        android:text="         CNY"
+        android:textSize="29sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pickButtonOne"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/inputTwo"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/button_draw_one"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="end"
+        android:hint="@string/et_hint"
+        android:inputType="numberDecimal"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pickButtonTwo"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/inputOne"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="384dp" />
+
+    <TextView
+        android:id="@+id/rateOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/inputOne"
+        app:layout_constraintTop_toBottomOf="@+id/inputOne" />
+
+    <TextView
+        android:id="@+id/rateTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/inputTwo"
+        app:layout_constraintTop_toBottomOf="@+id/inputTwo" />
+
+    <TextView
+        android:id="@+id/advancedTextOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
+        android:text="Bank Organisation:"
+        android:textColor="@color/navy"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+    <TextView
+        android:id="@+id/advancedTextTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
+        android:text="Bank Commission:"
+        android:textColor="@color/navy"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lineTwo" />
+
+    <ImageView
+        android:id="@+id/lineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTwo"
+        app:srcCompat="@drawable/line_one"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/lineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankVisa"
+        app:srcCompat="@drawable/line_one" />
+
+    <ImageView
+        android:id="@+id/bankJCB"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne"
+        app:srcCompat="@drawable/bank_jcb" />
+
+    <ImageView
+        android:id="@+id/bankDinersClub"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/bankJCB"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne"
+        app:srcCompat="@drawable/bank_diners_club" />
+
+
+    <ImageView
+        android:id="@+id/bankVisa"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/bankDinersClub"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne"
+        app:srcCompat="@drawable/bank_visa" />
+
+    <ImageView
+        android:id="@+id/bankMastercard"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/bankVisa"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne"
+        app:srcCompat="@drawable/bank_mastercard" />
+
+    <Button
+        android:id="@+id/bankJCBButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+    <Button
+        android:id="@+id/bankDinersClubButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toStartOf="@+id/bankJCB"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+    <Button
+        android:id="@+id/bankVisaButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toStartOf="@+id/bankDinersClub"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+    <Button
+        android:id="@+id/bankMastercardButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#00000000"
+        app:layout_constraintEnd_toStartOf="@+id/bankVisa"
+        app:layout_constraintTop_toBottomOf="@+id/lineOne" />
+
+    <EditText
+        android:id="@+id/commission"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:gravity="end"
+        android:textSize="25sp"
+        android:background="@drawable/button_draw_one"
+        android:hint="0.0"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/advancedTextTwo"
+        app:layout_constraintTop_toBottomOf="@+id/lineTwo" />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="%"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/commission"
+        app:layout_constraintStart_toEndOf="@+id/commission"
+        app:layout_constraintTop_toTopOf="@+id/commission" />
+
+</android.support.constraint.ConstraintLayout>
+

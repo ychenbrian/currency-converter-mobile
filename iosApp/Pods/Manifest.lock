@@ -1,0 +1,143 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
+  - AloeStackView (1.2.0)
+  - BetterSegmentedControl (2.0.1)
+  - Bond (7.8.1):
+    - Differ (~> 1.4)
+    - ReactiveKit (~> 3.14)
+  - Chatto (4.1.0)
+  - ChattoAdditions (4.1.0):
+    - Chatto (= 4.1.0)
+  - Differ (1.4.5)
+  - DropDown (2.3.13)
+  - FoldingCell (5.0.2)
+  - InputBarAccessoryView (5.3.1):
+    - InputBarAccessoryView/Core (= 5.3.1)
+  - InputBarAccessoryView/Core (5.3.1)
+  - Kingfisher (6.3.0)
+  - MultiPlatformLibrary (0.1.0)
+  - MultiPlatformLibraryMvvm/AlamofireImage (0.11.0):
+    - AlamofireImage (~> 4.1.0)
+    - MultiPlatformLibrary
+  - MultiPlatformLibraryMvvm/Core (0.11.0):
+    - MultiPlatformLibrary
+  - MultiPlatformLibraryMvvm/SkyFloatingLabelTextField (0.11.0):
+    - MultiPlatformLibrary
+    - SkyFloatingLabelTextField (~> 3.8.0)
+  - MultiPlatformLibraryUnits/Core (0.6.1):
+    - MultiPlatformLibrary
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - QuickLayout (3.0.0)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - RAMAnimatedTabBarController (5.2.0)
+  - ReactiveKit (3.17.4)
+  - SkyFloatingLabelTextField (3.8.0)
+  - SnapKit (5.0.1)
+  - SwiftEntryKit (1.2.7):
+    - QuickLayout (= 3.0.0)
+  - SwiftLint (0.43.1)
+  - "UITextView+Placeholder (1.4.0)"
+
+DEPENDENCIES:
+  - AloeStackView
+  - BetterSegmentedControl (~> 2.0)
+  - Bond
+  - ChattoAdditions (= 4.1.0)
+  - DropDown (= 2.3.13)
+  - FoldingCell
+  - InputBarAccessoryView
+  - Kingfisher (~> 6.0)
+  - MultiPlatformLibrary (from `../shared`)
+  - MultiPlatformLibraryMvvm/AlamofireImage (from `https://github.com/icerockdev/moko-mvvm.git`, tag `release/0.11.0`)
+  - MultiPlatformLibraryMvvm/Core (from `https://github.com/icerockdev/moko-mvvm.git`, tag `release/0.11.0`)
+  - MultiPlatformLibraryMvvm/SkyFloatingLabelTextField (from `https://github.com/icerockdev/moko-mvvm.git`, tag `release/0.11.0`)
+  - MultiPlatformLibraryUnits/Core (from `https://github.com/icerockdev/moko-units.git`, tag `release/0.6.1`)
+  - NVActivityIndicatorView (~> 4.0)
+  - R.swift
+  - RAMAnimatedTabBarController
+  - SnapKit (~> 5.0.0)
+  - SwiftEntryKit (= 1.2.7)
+  - SwiftLint
+  - "UITextView+Placeholder"
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - AloeStackView
+    - BetterSegmentedControl
+    - Bond
+    - Chatto
+    - ChattoAdditions
+    - Differ
+    - DropDown
+    - FoldingCell
+    - InputBarAccessoryView
+    - Kingfisher
+    - NVActivityIndicatorView
+    - QuickLayout
+    - R.swift
+    - R.swift.Library
+    - RAMAnimatedTabBarController
+    - ReactiveKit
+    - SkyFloatingLabelTextField
+    - SnapKit
+    - SwiftEntryKit
+    - SwiftLint
+    - "UITextView+Placeholder"
+
+EXTERNAL SOURCES:
+  MultiPlatformLibrary:
+    :path: "../shared"
+  MultiPlatformLibraryMvvm:
+    :git: https://github.com/icerockdev/moko-mvvm.git
+    :tag: release/0.11.0
+  MultiPlatformLibraryUnits:
+    :git: https://github.com/icerockdev/moko-units.git
+    :tag: release/0.6.1
+
+CHECKOUT OPTIONS:
+  MultiPlatformLibraryMvvm:
+    :git: https://github.com/icerockdev/moko-mvvm.git
+    :tag: release/0.11.0
+  MultiPlatformLibraryUnits:
+    :git: https://github.com/icerockdev/moko-units.git
+    :tag: release/0.6.1
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  AloeStackView: 8a4ce0efa08128dd78d538372f60c76c224034bb
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
+  Bond: 87075c7f20f37ea3e73dc7057fce839787bf46eb
+  Chatto: dae34c377e0eca8bdcfe7a05a4d79d55eaccec3e
+  ChattoAdditions: 101f0ee674f16ecdf4177939b7ce9271ea732999
+  Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  FoldingCell: f92eb5fb9842319e7cd08c71533c98408b785099
+  InputBarAccessoryView: 1f75d8c9f75e5e57f3ffac36ed58635a8005e0bc
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  MultiPlatformLibrary: b3aff3cc40dd142ba40415be3b1e630753876f97
+  MultiPlatformLibraryMvvm: ebf23a38def5e18bfb3a2d3437455bc4f4176618
+  MultiPlatformLibraryUnits: 49f0879a5d5ac87a965d6ab22aa41c49d1304477
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  ReactiveKit: f9f9e079efa39312c597bf1508ef4810d111ce76
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftEntryKit: 537c92699d6034efb1ef9c32b11e0b37c97aa589
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
+
+PODFILE CHECKSUM: 9fa36b8629268b91f0d33a1ba084b4e757104da8
+
+COCOAPODS: 1.10.1
