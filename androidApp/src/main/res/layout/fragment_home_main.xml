@@ -15,192 +15,256 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/frg_home_main_tv_transaction"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frg_home_main_cl_from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_transaction"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginHorizontal="24dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="40dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/frg_home_main_tv_transaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:text="@string/my_transaction"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frg_home_main_cl_from_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_currency_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frg_home_main_tv_transaction">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/frg_home_main_iv_from_flag"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flag_usd" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/frg_home_main_tv_from_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_from_flag"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flag_usd"
+                    tools:text="USD" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/frg_home_main_iv_from_down"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/baseline_keyboard_arrow_down_white_36"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/frg_home_main_tv_from_code"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/blue_300" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frg_home_main_cl_from_input"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_currency_input"
+                app:layout_constraintBottom_toBottomOf="@id/frg_home_main_cl_from_choose"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/frg_home_main_cl_from_choose"
+                app:layout_constraintTop_toTopOf="@id/frg_home_main_cl_from_choose">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="end"
+                    android:hint="@string/et_hint"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textSize="32sp"
+                    tools:text="12.3456789" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/frg_home_main_tv_from_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/frg_home_main_cl_from_input"
+                tools:text="1 = 0.8723456701" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frg_home_main_cl_to"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/frg_home_main_cl_from">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/frg_home_main_tv_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:text="@string/my_money"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frg_home_main_cl_to_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_currency_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frg_home_main_tv_money">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/frg_home_main_iv_to_flag"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/flag_gbp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/frg_home_main_tv_to_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="29sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_to_flag"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="GBP" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/frg_home_main_iv_to_down"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/baseline_keyboard_arrow_down_white_36"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/frg_home_main_tv_to_code"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/blue_300" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frg_home_main_cl_to_input"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_currency_input"
+                app:layout_constraintBottom_toBottomOf="@id/frg_home_main_cl_to_choose"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/frg_home_main_cl_to_choose"
+                app:layout_constraintTop_toTopOf="@id/frg_home_main_cl_to_choose">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="end"
+                    android:hint="@string/et_hint"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textSize="32sp"
+                    tools:text="12.3456789" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/frg_home_main_tv_to_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/frg_home_main_cl_to_input"
+                tools:text="1 = 1.34128765193" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/frg_home_main_vw_sep_one"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_300"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintTop_toBottomOf="@id/frg_home_main_cl_to"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frg_home_main_cl_from_choose"
-            android:background="@drawable/bg_currency_input"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/frg_home_main_tv_transaction"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/frg_home_main_vw_sep_one"
             >
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/frg_home_main_iv_from_flag"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/flag_usd"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/frg_home_main_tv_from_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/flag_usd"
-                android:fontFamily="sans-serif-thin"
-                android:textSize="29sp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_from_flag"
-                tools:text="USD"
-                />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/frg_home_main_iv_from_down"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/baseline_keyboard_arrow_down_white_36"
-                app:tint="@color/blue_300"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/frg_home_main_tv_from_code"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frg_home_main_cl_from_input"
-            android:background="@drawable/bg_currency_input"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintTop_toTopOf="@id/frg_home_main_cl_from_choose"
-            app:layout_constraintBottom_toBottomOf="@id/frg_home_main_cl_from_choose"
-            app:layout_constraintStart_toEndOf="@id/frg_home_main_cl_from_choose"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
-
-            <androidx.appcompat.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="6dp"
-                android:background="@color/transparent"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="end"
-                android:hint="@string/et_hint"
-                android:inputType="numberDecimal"
-                android:textSize="32sp"
-                android:textColor="@color/black"
-                tools:text="12.3456789"
-                />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frg_home_main_cl_to_choose"
-            android:background="@drawable/bg_currency_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/frg_home_main_cl_from_choose"
-            >
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/frg_home_main_iv_to_flag"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:srcCompat="@drawable/flag_usd"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/frg_home_main_tv_to_code"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/flag_usd"
-                android:fontFamily="sans-serif-thin"
-                android:textSize="29sp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginHorizontal="12dp"
+                android:text="@string/bank_organisation"
+                android:textColor="@color/indigo_900"
+                android:textSize="20sp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_to_flag"
-                tools:text="USD"
-                />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/frg_home_main_iv_to_down"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/baseline_keyboard_arrow_down_white_36"
-                app:tint="@color/blue_300"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/frg_home_main_tv_to_code"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frg_home_main_cl_to_input"
-            android:background="@drawable/bg_currency_input"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintTop_toTopOf="@id/frg_home_main_cl_to_choose"
-            app:layout_constraintBottom_toBottomOf="@id/frg_home_main_cl_to_choose"
-            app:layout_constraintStart_toEndOf="@id/frg_home_main_cl_to_choose"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="6dp"
-                android:background="@color/transparent"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="end"
-                android:hint="@string/et_hint"
-                android:inputType="numberDecimal"
-                android:textSize="32sp"
-                android:textColor="@color/black"
-                tools:text="12.3456789"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
