@@ -118,6 +118,7 @@ dependencies {
     implementation(Deps.Android.spinKit)
     implementation(Deps.Android.glide)
     implementation("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4")
+    implementation("com.github.addisonelliott:SegmentedButton:3.1.9")
     implementation("com.qmuiteam:qmui:2.0.1")
 
     // Epoxy
