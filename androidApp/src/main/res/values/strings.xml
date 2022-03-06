@@ -15,8 +15,17 @@
     <string name="my_money">My money is in:</string>
     <string name="bank_organisation">Bank Organisation:</string>
     <string name="bank_commission">Bank Commission:</string>
+    <string name="percentage">%</string>
+
+    <string name="visa">Visa</string>
+    <string name="mastercard">Mastercard</string>
+    <string name="jcb">JCB</string>
+    <string name="diners_club">Diners Club</string>
+
     <string name="imagine_one_description">This image is shown at the top for the flag of the first currency.</string>
     <string name="imagine_two_description">This image is shown at the bottom for the flag of the first currency.</string>
     <string name="imagine_arrow_one_description">The blue arrow at the top.</string>
     <string name="imagine_arrow_two_description">The blue arrow at the bottom.</string>
+
+
 </resources>
