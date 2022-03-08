@@ -133,6 +133,7 @@ dependencies {
     implementation(project(":shared"))
 
     debugImplementation("com.amitshekhar.android:debug-db:1.0.6")
+    implementation("org.jsoup:jsoup:1.11.3")
 }
 
 multiplatformUnits {
