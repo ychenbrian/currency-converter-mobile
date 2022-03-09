@@ -9,4 +9,8 @@ data class Currency(
     var jcbRate: Double = 0.0,
     var unionPayRate: Double = 0.0,
     var dinersClubRate: Double = 0.0
-)
+) {
+    fun getName(): String {
+        return "$code: $name"
+    }
+}
