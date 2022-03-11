@@ -10,7 +10,7 @@
     >
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/currency_flag"
+        android:id="@+id/item_currency_iv_flag"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -19,7 +19,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/currency_title"
+        android:id="@+id/item_currency_tv_currency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
