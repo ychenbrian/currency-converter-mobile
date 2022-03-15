@@ -10,7 +10,7 @@ data class Currency(
     var unionPayRate: Double = 0.0,
     var dinersClubRate: Double = 0.0
 ) {
-    fun getName(): String {
+    fun getFullName(): String {
         return "$code: $name"
     }
 }

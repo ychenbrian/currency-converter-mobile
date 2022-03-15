@@ -5,7 +5,10 @@ import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import org.koin.core.component.KoinComponent
 
-enum class HomeMainCommand
+enum class HomeMainCommand {
+    ChooseFromCurrency,
+    ChooseToCurrency
+}
 
 class HomeMainViewModel() : ViewModel(), KoinComponent {
 
@@ -14,4 +17,12 @@ class HomeMainViewModel() : ViewModel(), KoinComponent {
     val loading = MutableLiveData(false)
 
     var currency = Currency(code = "GBP")
+
+    fun chooseFrom() {
+        command.postValue(HomeMainCommand.ChooseFromCurrency)
+    }
+
+    fun chooseTo() {
+        command.postValue(HomeMainCommand.ChooseToCurrency)
+    }
 }

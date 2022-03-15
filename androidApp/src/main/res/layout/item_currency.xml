@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    >
+    xmlns:tools="http://schemas.android.com/tools" >
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/item_currency_iv_flag"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:padding="10dp"
-        tools:src="@drawable/flag_usd"
-        />
+    <data class=".ItemCurrencyBinding" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/item_currency_tv_currency"
+    <LinearLayout
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="16dp"
-        tools:text="US Dollar"
-        />
-</LinearLayout>
+        android:orientation="horizontal"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_currency_iv_flag"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:padding="10dp"
+            tools:src="@drawable/flag_usd"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_currency_tv_currency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            tools:text="US Dollar"
+            />
+    </LinearLayout>
+</layout>
