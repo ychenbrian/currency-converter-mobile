@@ -4,22 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.deerangle.dacc.android.FragmentCurrencyPickerBinding
 import com.deerangle.dacc.android.R
 import com.deerangle.dacc.data.model.Currency
-import com.deerangle.dacc.ui.home.homemain.HomeMainViewModel
-import com.deerangle.dacc.ui.home.homemain.currencypicker.CurrencyItemViewModel
 
 class CurrencyPickerDialog(
     val delegate: Delegate
-): DialogFragment() {
+) : DialogFragment() {
     interface Delegate {
         fun onCurrencySelect(currency: Currency)
     }
-    
+
     private lateinit var binding: FragmentCurrencyPickerBinding
     private var currencyAdapter: CurrencyItemAdapter? = null
 
@@ -36,7 +35,7 @@ class CurrencyPickerDialog(
 
         currencyAdapter = CurrencyItemAdapter(object : CurrencyItemCallback {
             override fun currencyClicked(currency: Currency) {
-                delegate.onCurrencySelect(currency )
+                delegate.onCurrencySelect(currency)
                 dismiss()
             }
         })
@@ -46,15 +45,22 @@ class CurrencyPickerDialog(
             layoutManager = LinearLayoutManager(context)
         }
 
-        val currencies = listOf(
-            Currency("AED", "UAE Dirham", R.drawable.flag_aed),
-            Currency("AFN", "Afghanistan Afghani", R.drawable.flag_afn),
-            Currency("ALL", "Albanian Lek", R.drawable.flag_all),
-            Currency("AMD", "Armenian Dram", R.drawable.flag_amd),
-            Currency("ANG", "Neth. Antillean Guilder", R.drawable.flag_ang),
-            Currency("AOA", "Angolan Kwanza", R.drawable.flag_aoa),
-            Currency("ARS", "Argentine Peso", R.drawable.flag_ars),
-            Currency("AUD", "Australian Dollar", R.drawable.flag_aud),
+        binding.frgCurrencyPickerEtSearch.addTextChangedListener {
+            val input: String = it.toString().lowercase()
+            val filtered = getCurrencies().filter {
+                it.code?.lowercase()?.contains(input) == true || it.name?.lowercase()?.contains(input) == true
+            }
+            (binding.frgCurrencyPickerRvMain.adapter as CurrencyItemAdapter).submitList(filtered)
+        }
+
+        val currencies = getCurrencies()
+        (binding.frgCurrencyPickerRvMain.adapter as CurrencyItemAdapter).submitList(currencies)
+
+        return view
+    }
+
+    fun getCurrencies(): List<Currency> {
+        return listOf(
             Currency("AWG", "Aruban Florin", R.drawable.flag_awg),
             Currency("AZN", "Azerbaijanian Manat", R.drawable.flag_azn),
             Currency("BAM", "Bosnian Convertible Mark", R.drawable.flag_bam),
@@ -201,8 +207,5 @@ class CurrencyPickerDialog(
             Currency("ZAR", "South African Rand", R.drawable.flag_zar),
             Currency("ZMW", "Zambian Kwacha", R.drawable.flag_zmw)
         )
-        (binding.frgCurrencyPickerRvMain.adapter as CurrencyItemAdapter).submitList(currencies)
-
-        return view
     }
 }

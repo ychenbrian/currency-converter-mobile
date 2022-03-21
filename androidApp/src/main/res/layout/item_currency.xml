@@ -5,30 +5,43 @@
 
     <data class=".ItemCurrencyBinding" />
 
-    <LinearLayout
-        android:id="@+id/rootView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        >
+        android:layout_height="wrap_content" >
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/item_currency_iv_flag"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:padding="10dp"
-            tools:src="@drawable/flag_usd"
-            />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_currency_tv_currency"
+        <LinearLayout
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:padding="16dp"
-            tools:text="US Dollar"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_currency_iv_flag"
+                android:layout_width="48dp"
+                android:layout_height="44dp"
+                android:paddingHorizontal="6dp"
+                tools:src="@drawable/flag_usd"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_currency_tv_currency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                tools:text="US Dollar"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_200"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
