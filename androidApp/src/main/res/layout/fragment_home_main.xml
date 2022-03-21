@@ -46,8 +46,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/frg_home_main_iv_from_flag"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="2dp"
@@ -65,7 +65,8 @@
                     android:layout_marginBottom="4dp"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="29sp"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/robotomono_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_from_flag"
                     app:layout_constraintTop_toTopOf="parent"
@@ -106,11 +107,12 @@
                     android:layout_margin="6dp"
                     android:background="@color/transparent"
                     android:ems="10"
-                    android:gravity="end"
+                    android:gravity="end|center_vertical"
                     android:hint="@string/et_hint"
                     android:inputType="numberDecimal"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/robotomono_light"
                     tools:text="12.3456789" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -150,14 +152,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:onClick="@{(v) -> viewModel.chooseTo()}"
                 android:background="@drawable/bg_currency_input"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/frg_home_main_tv_money">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/frg_home_main_iv_to_flag"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="2dp"
@@ -175,7 +178,8 @@
                     android:layout_marginBottom="4dp"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="29sp"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/robotomono_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/frg_home_main_iv_to_flag"
                     app:layout_constraintTop_toTopOf="parent"
@@ -215,11 +219,12 @@
                     android:layout_margin="6dp"
                     android:background="@color/transparent"
                     android:ems="10"
-                    android:gravity="end"
+                    android:gravity="end|center_vertical"
                     android:hint="@string/et_hint"
                     android:inputType="numberDecimal"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/robotomono_light"
                     tools:text="12.3456789" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

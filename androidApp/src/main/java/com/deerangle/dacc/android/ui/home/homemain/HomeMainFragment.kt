@@ -4,6 +4,7 @@ import com.deerangle.dacc.android.FragmentHomeMainBinding
 import com.deerangle.dacc.android.R
 import com.deerangle.dacc.android.ui.home.homemain.currencypicker.CurrencyPickerDialog
 import com.deerangle.dacc.android.utils.base.BaseFragment
+import com.deerangle.dacc.android.utils.helpers.CurrencyHelper
 import com.deerangle.dacc.android.utils.helpers.RateHelper
 import com.deerangle.dacc.data.model.Currency
 import com.deerangle.dacc.ui.home.homemain.HomeMainCommand
@@ -19,7 +20,10 @@ class HomeMainFragment : BaseFragment<FragmentHomeMainBinding, HomeMainViewModel
             if (command != null) {
                 when (command) {
                     HomeMainCommand.ChooseFromCurrency -> {
-                        showCurrencyPicker()
+                        showCurrencyPicker("FROM_CURRENCY")
+                    }
+                    HomeMainCommand.ChooseToCurrency -> {
+                        showCurrencyPicker("TO_CURRENCY")
                     }
                     else -> {}
                 }
@@ -28,16 +32,36 @@ class HomeMainFragment : BaseFragment<FragmentHomeMainBinding, HomeMainViewModel
     }
 
     override fun setupView() {
-        viewModel.currency = RateHelper.getByCurrencyCode(viewModel.currency.code?.lowercase() ?: "gbp")
+        viewModel.fromCurrency = CurrencyHelper.getCurrencies("gbp").get(0)
+        viewModel.toCurrency = CurrencyHelper.getCurrencies("cny").get(0)
+
+        binding?.apply {
+            frgHomeMainTvFromCode.text = this@HomeMainFragment.viewModel.fromCurrency?.code
+            frgHomeMainIvFromFlag.setImageResource(this@HomeMainFragment.viewModel.fromCurrency?.flag ?: R.drawable.flag_gbp)
+
+            frgHomeMainTvToCode.text = this@HomeMainFragment.viewModel.toCurrency?.code
+            frgHomeMainIvToFlag.setImageResource(this@HomeMainFragment.viewModel.toCurrency?.flag ?: R.drawable.flag_cny)
+        }
     }
 
-    private fun showCurrencyPicker() {
-        val dialog = CurrencyPickerDialog(this)
+    private fun showCurrencyPicker(viewTag: String) {
+        val dialog = CurrencyPickerDialog(viewTag, this)
         childFragmentManager.let {
             dialog.show(it, tag)
         }
     }
 
-    override fun onCurrencySelect(currency: Currency) {
+    override fun onCurrencySelect(viewTag: String, currency: Currency) {
+        if (viewTag == "FROM_CURRENCY") {
+            binding?.apply {
+                frgHomeMainTvFromCode.text = currency.code
+                frgHomeMainIvFromFlag.setImageResource(currency.flag)
+            }
+        } else if (viewTag == "TO_CURRENCY") {
+            binding?.apply {
+                frgHomeMainTvToCode.text = currency.code
+                frgHomeMainIvToFlag.setImageResource(currency.flag)
+            }
+        }
     }
 }

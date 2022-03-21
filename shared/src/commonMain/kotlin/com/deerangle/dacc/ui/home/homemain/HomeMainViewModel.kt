@@ -16,7 +16,8 @@ class HomeMainViewModel() : ViewModel(), KoinComponent {
     val error = MutableLiveData<String?>(null)
     val loading = MutableLiveData(false)
 
-    var currency = Currency(code = "GBP")
+    var fromCurrency: Currency? = null
+    var toCurrency: Currency? = null
 
     fun chooseFrom() {
         command.postValue(HomeMainCommand.ChooseFromCurrency)
