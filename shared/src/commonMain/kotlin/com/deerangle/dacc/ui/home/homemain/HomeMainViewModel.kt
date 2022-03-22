@@ -8,7 +8,8 @@ import org.koin.core.component.KoinComponent
 
 enum class HomeMainCommand {
     ChooseFromCurrency,
-    ChooseToCurrency
+    ChooseToCurrency,
+    FinishCalculation
 }
 
 class HomeMainViewModel() : ViewModel(), KoinComponent {
@@ -28,6 +29,8 @@ class HomeMainViewModel() : ViewModel(), KoinComponent {
     var resultFromRate = MutableLiveData<Double?>(null)
     var resultToRate = MutableLiveData<Double?>(null)
 
+    var commissionRate: Double = 0.0
+
     var bankOrg = 0
 
     fun setFromCurrency(currency: Currency) {
@@ -45,21 +48,33 @@ class HomeMainViewModel() : ViewModel(), KoinComponent {
             0 -> {
                 resultFromRate.postValue(from.visaRate / to.visaRate)
                 resultToRate.postValue(to.visaRate / from.visaRate)
+                command.postValue(HomeMainCommand.FinishCalculation)
             }
             1 -> {
                 resultFromRate.postValue(from.mastercardRate / to.mastercardRate)
                 resultToRate.postValue(to.mastercardRate / from.mastercardRate)
+                command.postValue(HomeMainCommand.FinishCalculation)
             }
             2 -> {
                 resultFromRate.postValue(from.jcbRate / to.jcbRate)
                 resultToRate.postValue(to.jcbRate / from.jcbRate)
+                command.postValue(HomeMainCommand.FinishCalculation)
             }
             3 -> {
                 resultFromRate.postValue(from.dinersClubRate / to.dinersClubRate)
                 resultToRate.postValue(to.dinersClubRate / from.dinersClubRate)
+                command.postValue(HomeMainCommand.FinishCalculation)
             }
-            else -> {}
+            else -> { command.postValue(HomeMainCommand.FinishCalculation) }
         }
+    }
+
+    fun getResultFromRate(): Double {
+        return resultFromRate.value ?: 0.0
+    }
+
+    fun getResultToRate(): Double {
+        return resultToRate.value ?: 0.0
     }
 
     fun setFromRate(rate: CurrencyRate) {
