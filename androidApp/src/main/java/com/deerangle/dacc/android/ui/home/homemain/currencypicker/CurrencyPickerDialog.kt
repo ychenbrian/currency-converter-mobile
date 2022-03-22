@@ -58,6 +58,4 @@ class CurrencyPickerDialog(
 
         return view
     }
-
-
 }

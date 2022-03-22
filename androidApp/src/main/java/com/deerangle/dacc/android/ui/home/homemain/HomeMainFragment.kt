@@ -7,6 +7,7 @@ import com.deerangle.dacc.android.utils.base.BaseFragment
 import com.deerangle.dacc.android.utils.helpers.CurrencyHelper
 import com.deerangle.dacc.android.utils.helpers.RateHelper
 import com.deerangle.dacc.data.model.Currency
+import com.deerangle.dacc.data.model.CurrencyRate
 import com.deerangle.dacc.ui.home.homemain.HomeMainCommand
 import com.deerangle.dacc.ui.home.homemain.HomeMainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,18 +30,61 @@ class HomeMainFragment : BaseFragment<FragmentHomeMainBinding, HomeMainViewModel
                 }
             }
         }
+        viewModel.fromCurrency.addObserver { currency ->
+            if (currency != null) {
+                binding?.frgHomeMainTvFromCode?.text = currency.code
+                binding?.frgHomeMainIvFromFlag?.setImageResource(currency.flag)
+
+                if (currency.code?.lowercase() == "usd") {
+                    viewModel.setFromRate(CurrencyRate(1.0, 1.0, 1.0, 1.0, 1.0))
+                } else {
+                    val rate = RateHelper.getByCurrencyCode(currency.code ?: "cny")
+                    viewModel.setFromRate(rate)
+                }
+            }
+        }
+        viewModel.toCurrency.addObserver { currency ->
+            if (currency != null) {
+                binding?.frgHomeMainTvToCode?.text = currency.code
+                binding?.frgHomeMainIvToFlag?.setImageResource(currency.flag)
+
+                if (currency.code?.lowercase() == "usd") {
+                    viewModel.setToRate(CurrencyRate(1.0, 1.0, 1.0, 1.0, 1.0))
+                } else {
+                    val rate = RateHelper.getByCurrencyCode(currency.code ?: "cny")
+                    viewModel.setToRate(rate)
+                }
+            }
+        }
+        viewModel.fromRate.addObserver { rate ->
+            if (rate != null) {
+                viewModel.calculateRate()
+            }
+        }
+        viewModel.toRate.addObserver { rate ->
+            if (rate != null) {
+                viewModel.calculateRate()
+            }
+        }
+        viewModel.resultFromRate.addObserver { rate ->
+            if (rate != null) {
+                binding?.frgHomeMainTvFromRate?.text = rate.toString()
+            }
+        }
+        viewModel.resultToRate.addObserver { rate ->
+            if (rate != null) {
+                binding?.frgHomeMainTvToRate?.text = rate.toString()
+            }
+        }
     }
 
     override fun setupView() {
-        viewModel.fromCurrency = CurrencyHelper.getCurrencies("gbp").get(0)
-        viewModel.toCurrency = CurrencyHelper.getCurrencies("cny").get(0)
+        viewModel.setFromCurrency(CurrencyHelper.getCurrencies("gbp")[0])
+        viewModel.setToCurrency(CurrencyHelper.getCurrencies("cny")[0])
 
-        binding?.apply {
-            frgHomeMainTvFromCode.text = this@HomeMainFragment.viewModel.fromCurrency?.code
-            frgHomeMainIvFromFlag.setImageResource(this@HomeMainFragment.viewModel.fromCurrency?.flag ?: R.drawable.flag_gbp)
-
-            frgHomeMainTvToCode.text = this@HomeMainFragment.viewModel.toCurrency?.code
-            frgHomeMainIvToFlag.setImageResource(this@HomeMainFragment.viewModel.toCurrency?.flag ?: R.drawable.flag_cny)
+        binding?.frgHomeMainSbgBank?.setOnPositionChangedListener {
+            viewModel.bankOrg = it
+            viewModel.calculateRate()
         }
     }
 
@@ -53,15 +97,9 @@ class HomeMainFragment : BaseFragment<FragmentHomeMainBinding, HomeMainViewModel
 
     override fun onCurrencySelect(viewTag: String, currency: Currency) {
         if (viewTag == "FROM_CURRENCY") {
-            binding?.apply {
-                frgHomeMainTvFromCode.text = currency.code
-                frgHomeMainIvFromFlag.setImageResource(currency.flag)
-            }
+            viewModel.setFromCurrency(currency)
         } else if (viewTag == "TO_CURRENCY") {
-            binding?.apply {
-                frgHomeMainTvToCode.text = currency.code
-                frgHomeMainIvToFlag.setImageResource(currency.flag)
-            }
+            viewModel.setToCurrency(currency)
         }
     }
 }
