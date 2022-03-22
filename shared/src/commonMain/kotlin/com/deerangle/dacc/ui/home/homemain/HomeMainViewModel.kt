@@ -9,7 +9,8 @@ import org.koin.core.component.KoinComponent
 enum class HomeMainCommand {
     ChooseFromCurrency,
     ChooseToCurrency,
-    FinishCalculation
+    FinishCalculation,
+    ClearInput
 }
 
 class HomeMainViewModel() : ViewModel(), KoinComponent {
@@ -91,5 +92,9 @@ class HomeMainViewModel() : ViewModel(), KoinComponent {
 
     fun chooseTo() {
         command.postValue(HomeMainCommand.ChooseToCurrency)
+    }
+
+    fun clearInput() {
+        command.postValue(HomeMainCommand.ClearInput)
     }
 }

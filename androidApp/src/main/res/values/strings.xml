@@ -17,6 +17,7 @@
     <string name="bank_commission">Bank Commission:</string>
     <string name="percentage">%</string>
     <string name="search_dot">Search…</string>
+    <string name="clear_input">Clear All Inputs</string>
 
     <string name="visa">Visa</string>
     <string name="mastercard">Mastercard</string>

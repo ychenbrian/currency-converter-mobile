@@ -32,6 +32,12 @@ class HomeMainFragment : BaseFragment<FragmentHomeMainBinding, HomeMainViewModel
                     HomeMainCommand.FinishCalculation -> {
                         updateToAmount(binding?.frgHomeMainEtFromAmount?.text.toString())
                     }
+                    HomeMainCommand.ClearInput -> {
+                        binding?.apply {
+                            frgHomeMainEtFromAmount.setText("")
+                            frgHomeMainEtCommission.setText("")
+                        }
+                    }
                     else -> {}
                 }
             }
